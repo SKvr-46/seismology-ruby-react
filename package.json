@@ -11,8 +11,11 @@
     "compression-webpack-plugin": "9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
     "shakapacker": "6.6.0",
     "terser-webpack-plugin": "5",
+    "typescript": "^5.0.4",
     "webpack": "5",
     "webpack-assets-manifest": "5",
     "webpack-cli": "4",
@@ -20,13 +23,12 @@
     "webpack-merge": "5"
   },
   "version": "0.1.0",
-  "babel": {
-    "presets": [
-      "./node_modules/shakapacker/package/babel/preset.js",
-      "@babel/preset-react"
-    ]
-  },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.21.5",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+    "react-refresh": "^0.14.0"
+  }
 }

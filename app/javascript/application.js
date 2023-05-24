@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <>
     <Container>
     <App/>
-    </Container>
     <WavenumberCalcForm/>
+    </Container>
     <Footer/>
     </>
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export const WavenumberCalcForm = () => {
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
+  const [value3, setValue3] = useState("");
   const [result, setResult] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -14,7 +15,7 @@ export const WavenumberCalcForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ value1, value2 }),
+        body: JSON.stringify({ value1, value2, value3 }),
       });
       
       if (!response.ok) {
@@ -40,6 +41,11 @@ export const WavenumberCalcForm = () => {
           type="number"
           value={value2}
           onChange={(e) => setValue2(e.target.value)}
+        />
+          <input
+          type="number"
+          value={value3}
+          onChange={(e) => setValue3(e.target.value)}
         />
         <button type="submit">Calculate</button>
       </form>

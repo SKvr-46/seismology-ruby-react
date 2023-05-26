@@ -1,6 +1,7 @@
 import sys
 
-value1 = int(sys.argv[1])
-value2 = int(sys.argv[2])
-sum = value1 + value2
+value1 = float(sys.argv[1])
+value2 = float(sys.argv[2])
+value3 = float(sys.argv[3])
+sum = value1 + value2 + value3
 print(sum)

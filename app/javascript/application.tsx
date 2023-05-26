@@ -7,7 +7,7 @@ import { WavenumberCalcForm } from './components/WavenumberCalcForm';
 
 
 
-const container = document.getElementById('root');
+const container:  HTMLElement = document.getElementById('root')!;
 const root = createRoot(container);
 
 document.addEventListener('DOMContentLoaded', () => {

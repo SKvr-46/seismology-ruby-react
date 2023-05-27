@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    place-items: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4em;
+        
+        label {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

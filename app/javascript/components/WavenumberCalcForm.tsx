@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
 export const WavenumberCalcForm = () => {
-  const [value1, setValue1] = useState("");
-  const [value2, setValue2] = useState("");
-  const [value3, setValue3] = useState("");
-  const [value4, setValue4] = useState("");
-  const [sum, setSum] = useState("");
-  const [array, setArray] = useState([]);
+  const [row, setRow] = useState("");
+  const [column, setColumn] = useState("");
+  const [slipDistribution, setSlipDistribution] = useState("");
+  const [result, setResult] = useState([])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,7 +15,7 @@ export const WavenumberCalcForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ value1, value2, value3, value4 }),
+        body: JSON.stringify({ row, column, slipDistribution }),
       });
       
       if (!response.ok) {
@@ -25,9 +23,8 @@ export const WavenumberCalcForm = () => {
       }
       
       const data = await response.json();
-      setSum(data.sum);
-      setArray(data.arr);
-
+      setResult(data.result)
+      console.log(data.row, data.column, data.slipDistribution)
     } catch (error) {
       console.error(error);
     }
@@ -38,28 +35,22 @@ export const WavenumberCalcForm = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="number"
-          value={value1}
-          onChange={(e) => setValue1(e.target.value)}
+          value={row}
+          onChange={(e) => setRow(e.target.value)}
         />
         <input
           type="number"
-          value={value2}
-          onChange={(e) => setValue2(e.target.value)}
-        />
-        <input
-          type="number"
-          value={value3}
-          onChange={(e) => setValue3(e.target.value)}
+          value={column}
+          onChange={(e) => setColumn(e.target.value)}
         />
         <input
           type="text"
-          value={value4}
-          onChange={(e) => setValue4(e.target.value)}
+          value={slipDistribution}
+          onChange={(e) => setSlipDistribution(e.target.value)}
         />
         <button type="submit">Calculate</button>
       </form>
-      {sum && <p>Result: {sum}</p>}
-      {array && <p>Array: {array}</p>}
+      {result && <p>Result: {result}</p>}
     </div>
   );
 };

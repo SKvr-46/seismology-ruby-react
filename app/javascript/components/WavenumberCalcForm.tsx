@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { GeneratedImageDisplay } from "./GeneratedImageDisplay";
+import Figure from "../images/figure.png"
+import SpectrumPlot from "../images/spectrum_plot.png"
 
 export const WavenumberCalcForm = () => {
   const [row, setRow] = useState("");
@@ -26,8 +29,7 @@ export const WavenumberCalcForm = () => {
       
       const data = await response.json();
       setResult(data.result)
-      console.log(data.row, data.column, data.slipDistribution, data.dx, data.dy)
-      console.log(data.result)
+      console.log("slip_distribution", data.slipDistribution)
     } catch (error) {
       console.error(error);
     }
@@ -69,16 +71,27 @@ export const WavenumberCalcForm = () => {
           />
         </label>
         <label>
-          SlIP_DISTRIBUTION
+          SLIP_DISTRIBUTION
           <input
             type="text"
             value={slipDistribution}
             onChange={(e) => setSlipDistribution(e.target.value)}
           />
         </label>
-        <button type="submit">Calculate</button>
+        <button type="submit">CALCULATE</button>
       </form>
-      {result && <p>Result: {result}</p>}
+      <div>
+        <details>
+          <summary>各変数情報</summary>
+          <p>ROW：滑り分布の行数およびサンプリング数</p>
+          <p>COLUMN：滑り分布の列数およびサンプリング数</p>
+          <p>DX：グリッドの横の長さ</p>
+          <p>DY：グリッドの縦の長さ</p>
+          <p>SLIP_DISTRIBUTION：滑り分布</p>
+        </details>
+      </div>
+    <GeneratedImageDisplay imgUrl={Figure}/>
+    <GeneratedImageDisplay imgUrl={SpectrumPlot}/>
     </div>
   );
 };

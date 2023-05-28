@@ -1,14 +1,48 @@
 .container {
     display: grid;
     place-items: center;
+    width: 100%;
     form {
         display: flex;
         flex-direction: column;
         gap: 0.4em;
-        
+        background-color: rgb(170, 224, 206);
+        padding: 1em 5em;
+        border-radius: 10px;
+        margin: 2em;
+
         label {
             display: flex;
             flex-direction: column;
+            font-weight: bold;
+        }
+        button {
+            padding: 0.5em;
+            border: 2px ridge black;
+            border-radius: 0.3em;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    details {
+        display: grid;
+        place-items: center;
+        position: relative;
+        width: 100%;
+
+        & summary {
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        & p {
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
         }
     }
 }

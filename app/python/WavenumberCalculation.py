@@ -64,36 +64,31 @@ ax3.set_title('2D Wavenumber spectrum')
 fig.colorbar(im, ax=ax3)
 im.autoscale()
 
-fig.savefig('figure.png')
+fig.savefig('app/javascript/images/figure.png')
 plt.close(fig)
 
 
 
 #すべり分布の出力
-fig, ax = plt.subplots(figsize=(5, 5))
-plt.imshow(slip, cmap='jet')
-plt.colorbar()
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title("slip")
-fig.savefig('slip_plot.png')
-plt.close(fig)
+fig, (ax4, ax5) = plt.subplots(1, 2, figsize=(12, 6))
+ax4.imshow(slip, cmap='jet')
+fig.colorbar(ax4.imshow(slip, cmap='jet'), ax=ax4)
+ax4.set_xlabel('x')
+ax4.set_ylabel('y')
+ax4.set_title("slip")
 
 
 #波数0で1に規格化された縦方向の波数スペクトルと、横方向の波数スペクトルの出力
 #kx_specの規格化：kx=0の列で全体を割る。
 #こうすることで、どのkyの場合でも、始まりが1になる。
-fig, ax = plt.subplots(figsize=(8, 6))
-kx_spec_normalized = kx_spec / kx_spec[:,judge(nx)][:, np.newaxis] 
-plt.plot(modified_kx,kx_spec_normalized[judge(ny),:], 'b.-')  
-
-#ky_specの規格化：ky=0の行で割る
+kx_spec_normalized = kx_spec / kx_spec[:,judge(nx)][:, np.newaxis]
+ax5.plot(modified_kx, kx_spec_normalized[judge(ny), :], 'b.-')
 ky_spec_normalized = ky_spec / ky_spec[judge(ny),:]
-plt.plot(modified_ky, ky_spec_normalized[:,judge(nx)], 'r.-')  
+ax5.plot(modified_ky, ky_spec_normalized[:,judge(nx)], 'r.-')
+ax5.set_xlabel('wavenumber')
+ax5.set_ylabel('amplitude')
+ax5.set_title('Normalized Wavenumber spectrum')
+ax5.set_xlim(0, max(max(modified_ky), max(modified_kx)))
 
-plt.xlabel('wavenumber')
-plt.ylabel('amplitude')
-plt.title('Normalized Wavenumber spectrum ')
-plt.xlim(0, max(max(modified_ky), max(modified_kx)))
-fig.savefig('spectrum_plot.png')
+fig.savefig('app/javascript/images/spectrum_plot.png')
 plt.close(fig)

@@ -7,7 +7,7 @@ interface ContainerpPropsType {
 export const Container = (props:ContainerpPropsType) => {
     const {children} = props
     return(
-        <div className="container_container">
+        <div className="container">
             {children}
         </div>
     )

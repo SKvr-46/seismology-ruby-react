@@ -10,6 +10,7 @@
         padding: 1em 5em;
         border-radius: 10px;
         margin: 2em;
+        filter: drop-shadow(0 0 1em gray);
 
         label {
             display: flex;
@@ -18,8 +19,11 @@
         }
         button {
             padding: 0.5em;
+            margin: 0.5em;
             border: 2px ridge black;
             border-radius: 0.3em;
+            font-weight: bold;
+            background-color: rgba(255, 255, 0, 0.8);
 
             &:hover {
                 cursor: pointer;
@@ -32,6 +36,10 @@
         place-items: center;
         position: relative;
         width: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         & summary {
             text-align: center;

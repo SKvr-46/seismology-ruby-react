@@ -83,8 +83,8 @@ export const WavenumberCalcForm = () => {
       <div>
         <details>
           <summary>各変数情報</summary>
-          <p>ROW：滑り分布の行数およびサンプリング数</p>
-          <p>COLUMN：滑り分布の列数およびサンプリング数</p>
+          <p>ROW：滑り分布の行数および縦方向のサンプリング数</p>
+          <p>COLUMN：滑り分布の列数および横方向のサンプリング数</p>
           <p>DX：グリッドの横の長さ</p>
           <p>DY：グリッドの縦の長さ</p>
           <p>SLIP_DISTRIBUTION：滑り分布</p>

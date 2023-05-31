@@ -6,19 +6,30 @@ import { Container } from './components/Container';
 import { WavenumberCalcForm } from './components/WavenumberCalcForm';
 
 
+const path = window.location.pathname;
 
-const container:  HTMLElement = document.getElementById('root')!;
-const root = createRoot(container);
+if (path === '/') {
+  const container:  HTMLElement = document.getElementById('root')!;
+  const root = createRoot(container);
+    root.render(
+      <>
+      <Container>
+      <App/>
+      <WavenumberCalcForm/>
+      </Container>
+      <Footer/>
+      </>
+  
+    );
+} else if(path === "/users") {
+  const users_container:  HTMLElement = document.getElementById('users')!;
+  const users = createRoot(users_container);
+  
+    users.render(
+      <>
+      <Footer/>
+      </>
+  
+    );
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  root.render(
-    <>
-    <Container>
-    <App/>
-    <WavenumberCalcForm/>
-    </Container>
-    <Footer/>
-    </>
-
-  );
-});

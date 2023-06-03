@@ -4,6 +4,7 @@ import { App } from './components/App';
 import { Footer } from './components/Footer';
 import { Container } from './components/Container';
 import { WavenumberCalcForm } from './components/WavenumberCalcForm';
+import { Users } from './components/Users';
 
 
 const path = window.location.pathname;
@@ -27,6 +28,7 @@ if (path === '/') {
   
     users.render(
       <>
+      <Users/>
       <Footer/>
       </>
   

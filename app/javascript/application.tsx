@@ -28,7 +28,9 @@ if (path === '/') {
   
     users.render(
       <>
+      <Container>
       <Users/>
+      </Container>
       <Footer/>
       </>
   

@@ -1,0 +1,25 @@
+.header {
+    background: #2f363e;
+    width: 100%;
+
+    & ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        justify-content: end;
+        padding: 1em;
+
+        & li {
+            list-style: none;
+            & a {
+                color: white;
+                text-decoration: none;
+
+                &:hover {
+                    color: aqua;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

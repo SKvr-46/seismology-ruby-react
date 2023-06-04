@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './components/App';
 import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 import { Container } from './components/Container';
 import { WavenumberCalcForm } from './components/WavenumberCalcForm';
 import { Users } from './components/Users';
@@ -14,6 +15,7 @@ if (path === '/') {
   const root = createRoot(container);
     root.render(
       <>
+      <Header/>
       <Container>
       <App/>
       <WavenumberCalcForm/>
@@ -28,6 +30,7 @@ if (path === '/') {
   
     users.render(
       <>
+      <Header/>
       <Container>
       <Users/>
       </Container>
